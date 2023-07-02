@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\Guest\ComicController;
+use App\Http\Controllers\Guest\PageController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +16,10 @@ use App\Http\Controllers\Guest\ComicController;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/about', [PageController::class, 'about'])->name('about');
 
 
-//rotte della risorsa comic
-Route::get('/comics',[ComicController::class, 'index'] )->name('comics.index');
+// Rotte risorsa Comic
+// Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');
+// Route::get('/comics/{id}', [ComicController::class, 'show'])->name('comics.show');
+
+Route::resource('comics', ComicController::class);
